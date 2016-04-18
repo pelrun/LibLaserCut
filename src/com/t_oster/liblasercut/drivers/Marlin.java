@@ -51,6 +51,12 @@ public class Marlin extends GenericGcodeDriver {
     setHost("");
   }
   
+  @Override
+  public String[] getUploadMethodList()
+  {
+    return new String[]{UPLOAD_METHOD_FILE, UPLOAD_METHOD_SERIAL};
+  }
+
   /**
    * Adjust defaults after deserializing driver from an old version of XML file
    */
@@ -79,6 +85,7 @@ public class Marlin extends GenericGcodeDriver {
     result.remove(GenericGcodeDriver.SETTING_INIT_DELAY);
     result.remove(GenericGcodeDriver.SETTING_HTTP_UPLOAD_URL);
     result.remove(GenericGcodeDriver.SETTING_HOST);
+    result.remove(GenericGcodeDriver.SETTING_AUTOPLAY);
     result.remove(GenericGcodeDriver.SETTING_SPINDLE_MAX);
     result.remove(GenericGcodeDriver.SETTING_BLANK_LASER_DURING_RAPIDS);
     return result.toArray(new String[0]);

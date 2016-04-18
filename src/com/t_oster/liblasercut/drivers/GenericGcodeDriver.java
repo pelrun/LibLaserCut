@@ -79,7 +79,10 @@ public class GenericGcodeDriver extends LaserCutter {
   protected static final String UPLOAD_METHOD_IP = "IP";
   protected static final String UPLOAD_METHOD_SERIAL = "Serial";
 
-  protected static final String[] uploadMethodList = {UPLOAD_METHOD_FILE, UPLOAD_METHOD_HTTP, UPLOAD_METHOD_IP, UPLOAD_METHOD_SERIAL};
+  public String[] getUploadMethodList()
+  {
+    return new String[]{UPLOAD_METHOD_FILE, UPLOAD_METHOD_HTTP, UPLOAD_METHOD_IP, UPLOAD_METHOD_SERIAL};
+  }
 
   private String lineend = "LF";
 
@@ -275,7 +278,7 @@ public class GenericGcodeDriver extends LaserCutter {
       }
     }
 
-    OptionSelector o = new OptionSelector(uploadMethodList, uploadMethod);
+    OptionSelector o = new OptionSelector(getUploadMethodList(), uploadMethod);
     return o;
   }
 

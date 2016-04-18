@@ -19,9 +19,7 @@
 package com.t_oster.liblasercut.drivers;
 
 import com.t_oster.liblasercut.ProgressListener;
-import com.t_oster.liblasercut.platform.Util;
 import java.io.IOException;
-import java.io.PrintStream;
 import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.List;
@@ -59,6 +57,12 @@ public class Grbl extends GenericGcodeDriver
   
   protected static final String SETTING_AUTO_HOME = "Automatically home laser cutter";
   
+  @Override
+  public String[] getUploadMethodList()
+  {
+    return new String[]{UPLOAD_METHOD_FILE, UPLOAD_METHOD_SERIAL};
+  }
+
   @Override
   public String[] getPropertyKeys()
   {
